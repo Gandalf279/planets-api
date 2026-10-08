@@ -60,6 +60,8 @@ type HeightRequestItem struct {
 var geoidGrid *Grid
 
 func main() {
+	fmt.Println("----- PLANETS API -----")
+	fmt.Println("Checking geoid grid file...")
 	downloadOnly := flag.Bool("download-only", false, "download/convert the geoid grid and exit")
 	flag.Parse()
 
@@ -71,12 +73,14 @@ func main() {
 		return
 	}
 
+	fmt.Println("Loading geoid grid file...")
 	var err error
 	geoidGrid, err = LoadGrid(gridFile, gridRows, gridCols, gridStepDeg)
 	if err != nil {
 		log.Fatalf("loading geoid grid: %v", err)
 	}
 
+	fmt.Println("Starting gin Router...")
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.Use(func(c *gin.Context) {
