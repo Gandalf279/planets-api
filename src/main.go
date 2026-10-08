@@ -101,6 +101,9 @@ func main() {
 	router.GET("/height_conversion", convertHeight)
 
 	router.Run()
+	fmt.Println("--------------------------------------------")
+	fmt.Println("---------- PLANETS API IS RUNNING ----------")
+	fmt.Println("--------------------------------------------")
 }
 
 // ---------------------------------------------------------------------------
