@@ -80,7 +80,6 @@ func main() {
 		log.Fatalf("loading geoid grid: %v", err)
 	}
 
-	fmt.Println("Starting gin Router...")
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.Use(func(c *gin.Context) {
@@ -99,7 +98,7 @@ func main() {
 	router.GET("/help", sendHelp)
 	router.GET("/planets_help", sendPlanetsHelp)
 	router.GET("/height_conversion", convertHeight)
-
+	fmt.Println("Starting gin Router...")
 	router.Run()
 	fmt.Println("--------------------------------------------")
 	fmt.Println("---------- PLANETS API IS RUNNING ----------")
