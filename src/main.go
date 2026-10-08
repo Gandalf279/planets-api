@@ -77,6 +77,7 @@ func main() {
 		log.Fatalf("loading geoid grid: %v", err)
 	}
 
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.Use(func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
